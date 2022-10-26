@@ -38,7 +38,7 @@
             // 
             // randomPage
             // 
-            this.randomPage.Location = new System.Drawing.Point(288, 47);
+            this.randomPage.Location = new System.Drawing.Point(266, 50);
             this.randomPage.Name = "randomPage";
             this.randomPage.Size = new System.Drawing.Size(113, 23);
             this.randomPage.TabIndex = 0;
@@ -69,12 +69,13 @@
             this.currentPageContent.Multiline = true;
             this.currentPageContent.Name = "currentPageContent";
             this.currentPageContent.ReadOnly = true;
+            this.currentPageContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.currentPageContent.Size = new System.Drawing.Size(367, 317);
             this.currentPageContent.TabIndex = 1;
             // 
             // gotoPage
             // 
-            this.gotoPage.Location = new System.Drawing.Point(288, 18);
+            this.gotoPage.Location = new System.Drawing.Point(266, 21);
             this.gotoPage.Name = "gotoPage";
             this.gotoPage.Size = new System.Drawing.Size(113, 23);
             this.gotoPage.TabIndex = 3;
@@ -86,7 +87,7 @@
             // 
             this.searchBar.Location = new System.Drawing.Point(12, 21);
             this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(270, 20);
+            this.searchBar.Size = new System.Drawing.Size(248, 20);
             this.searchBar.TabIndex = 4;
             // 
             // MainWindow
@@ -101,7 +102,6 @@
             this.Controls.Add(this.currentPageContent);
             this.Controls.Add(this.randomPage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "MainWindow";
             this.Text = "Wikipedia Traductor";
             this.Load += new System.EventHandler(this.Form1_Load);
