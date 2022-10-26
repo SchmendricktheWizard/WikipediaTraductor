@@ -12,7 +12,7 @@ namespace WikipediaTraductor
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        //[STAThread]
         static void Main()
         {
             //Application.EnableVisualStyles();
@@ -23,9 +23,9 @@ namespace WikipediaTraductor
             WikiPage newPage = new WikiPage(pageGetter.GetRandomPage());
 
             Console.WriteLine("Page Title: {0}", newPage.title);
-            foreach (string topic in newPage.Topics)
+            foreach (string paragraph in newPage.Paragraphs())
             {
-                Console.WriteLine("Topic: {0}", topic);
+                Console.WriteLine($"Paragraphs {paragraph}");
             }
         }
     }

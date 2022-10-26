@@ -14,6 +14,7 @@ namespace WikipediaTraductor
     {
         public string title;
         private HtmlNodeCollection topics;
+        private HtmlNodeCollection paragraphs;
         public HtmlDocument htmlDocument;
         public WikiPage(HtmlDocument htmlDocument)
         {
@@ -22,30 +23,40 @@ namespace WikipediaTraductor
             this.title = htmlDocument.DocumentNode
                 .SelectSingleNode("//h1[@id=\"firstHeading\"]")
                 .InnerText;
-            this.topics = htmlDocument.DocumentNode.SelectNodes("//*[@class=\"mw-headline\"]/span");
+            this.topics = htmlDocument.DocumentNode.SelectNodes("//*[@class=\"mw-headline\"]");
+            this.paragraphs = htmlDocument.DocumentNode.SelectNodes("//p");
 
         }
         /// <summary>
-        /// A list of the subtopic headers on the page as strings
+        /// Returns a string array of subtopic headers on the page
         /// </summary>
-        public string[] Topics
+        public string[] Topics()
         {
-            get
+            string[] result = new string[topics.Count];
+            if (topics == null)
+                return new string[0];
+            int i = 0;
+            foreach (var topic in topics)
             {
-                if (topics == null)
-                    return null;
-                string[] result = new string[topics.Count];
-                int i = 0;
-                foreach (var topic in topics)
+                if (topic.InnerText != "External Links" && topic.InnerText != "References")
                 {
-                    if (topic.InnerText != "External Links" && topic.InnerText != "References")
-                    {
-                        result[i] = topic.InnerText;
-                        i++;
-                    }
+                    result[i] = topic.InnerText;
+                    i++;
                 }
-                return result;
             }
+            return result;   
+        }
+
+        public string[] Paragraphs()
+        {
+            string[] result = new string[paragraphs.Count];
+            int i = 0;
+            foreach(var paragraph in paragraphs)
+            {
+                result[i] = paragraph.InnerText;
+                i++;
+            }
+            return result;
         }
 
     }
