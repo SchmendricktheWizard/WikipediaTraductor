@@ -43,7 +43,7 @@
             this.randomPage.TabIndex = 0;
             this.randomPage.Text = "Random Page";
             this.randomPage.UseVisualStyleBackColor = true;
-            this.randomPage.Click += new System.EventHandler(this.button1_Click);
+            this.randomPage.Click += new System.EventHandler(this.random_Click);
             // 
             // currentPageTitle
             // 

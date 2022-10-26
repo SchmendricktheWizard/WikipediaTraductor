@@ -25,18 +25,17 @@ namespace WikipediaTraductor
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void random_Click(object sender, EventArgs e)
         {
             currentPageContent.Text = "";
             currentPageTitle.Text = "";
             currentPage = new WikiPage(pageGetter.GetRandomPage());
             currentPageTitle.Text = currentPage.title;
-            foreach(string paragraph in currentPage.Paragraphs())
+            foreach (string paragraph in currentPage.Paragraphs())
             {
                 currentPageContent.Text += string.Format($"{paragraph}\n");
             }
-
-
         }
     }
 }
