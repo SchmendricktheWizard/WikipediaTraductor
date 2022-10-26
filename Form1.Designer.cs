@@ -1,6 +1,6 @@
 ﻿namespace WikipediaTraductor
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.randomPage = new System.Windows.Forms.Button();
             this.currentPageTitle = new System.Windows.Forms.TextBox();
             this.currentPageContent = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             this.currentPageTitle.BackColor = System.Drawing.SystemColors.Menu;
             this.currentPageTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentPageTitle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.currentPageTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.currentPageTitle.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentPageTitle.Location = new System.Drawing.Point(11, 95);
             this.currentPageTitle.Name = "currentPageTitle";
@@ -62,7 +64,8 @@
             // currentPageContent
             // 
             this.currentPageContent.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
-            this.currentPageContent.Location = new System.Drawing.Point(11, 121);
+            this.currentPageContent.Cursor = System.Windows.Forms.Cursors.Default;
+            this.currentPageContent.Location = new System.Drawing.Point(12, 121);
             this.currentPageContent.Multiline = true;
             this.currentPageContent.Name = "currentPageContent";
             this.currentPageContent.ReadOnly = true;
@@ -77,6 +80,7 @@
             this.gotoPage.TabIndex = 3;
             this.gotoPage.Text = "Go To Page";
             this.gotoPage.UseVisualStyleBackColor = true;
+            this.gotoPage.Click += new System.EventHandler(this.goto_Click);
             // 
             // searchBar
             // 
@@ -85,7 +89,7 @@
             this.searchBar.Size = new System.Drawing.Size(270, 20);
             this.searchBar.TabIndex = 4;
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -96,8 +100,10 @@
             this.Controls.Add(this.currentPageTitle);
             this.Controls.Add(this.currentPageContent);
             this.Controls.Add(this.randomPage);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Name = "MainWindow";
+            this.Text = "Wikipedia Traductor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

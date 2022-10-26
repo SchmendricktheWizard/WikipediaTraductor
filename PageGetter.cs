@@ -30,7 +30,7 @@ namespace WikipediaTraductor
         /// <returns></returns>
         public HtmlDocument GetPage(string title)
         {
-            return web.Load("https://en.wikipedia.org/wiki/{0}", title);
+            return web.Load($"https://en.wikipedia.org/wiki/{title}");
         }
     }
 }

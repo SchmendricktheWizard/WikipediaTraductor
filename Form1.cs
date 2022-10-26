@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace WikipediaTraductor
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         PageGetter pageGetter = new PageGetter();
         WikiPage currentPage;
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -31,11 +31,24 @@ namespace WikipediaTraductor
             currentPageContent.Text = "";
             currentPageTitle.Text = "";
             currentPage = new WikiPage(pageGetter.GetRandomPage());
-            currentPageTitle.Text = currentPage.title;
-            foreach (string paragraph in currentPage.Paragraphs())
+            currentPageTitle.Text = currentPage.Title;
+            foreach (string paragraph in currentPage.Paragraphs)
             {
                 currentPageContent.Text += string.Format($"{paragraph}\n");
             }
+        }
+
+        private void goto_Click(object sender, EventArgs e)
+        {
+            currentPageContent.Text = "";
+            currentPageTitle.Text = "";
+            currentPage = new WikiPage(pageGetter.GetPage(searchBar.Text));
+            currentPageTitle.Text = currentPage.Title;
+            foreach (string paragraph in currentPage.Paragraphs)
+            {
+                currentPageContent.Text += string.Format($"{paragraph}\n");
+            }
+
         }
     }
 }
