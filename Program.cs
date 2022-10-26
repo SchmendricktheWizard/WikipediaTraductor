@@ -18,10 +18,15 @@ namespace WikipediaTraductor
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            HtmlWeb htmlWeb = new HtmlWeb();
-            var html = 
-            WikiPage firstPage = new WikiPage();
-            Console.WriteLine("Page Title: ");
+
+            PageGetter pageGetter = new PageGetter();
+            WikiPage newPage = new WikiPage(pageGetter.GetRandomPage());
+
+            Console.WriteLine("Page Title: {0}", newPage.title);
+            foreach (string topic in newPage.Topics)
+            {
+                Console.WriteLine("Topic: {0}", topic);
+            }
         }
     }
 }
