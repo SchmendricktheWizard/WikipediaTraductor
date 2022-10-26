@@ -28,7 +28,7 @@ namespace WikipediaTraductor
 
         }
         /// <summary>
-        /// Returns a string array of subtopic headers on the page
+        /// Method <c>Topics</c> Returns a string array of subtopic headers on the page
         /// </summary>
         public string[] Topics()
         {
