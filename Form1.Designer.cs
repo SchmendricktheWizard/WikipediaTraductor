@@ -38,7 +38,7 @@
             // 
             // randomPage
             // 
-            this.randomPage.Location = new System.Drawing.Point(266, 50);
+            this.randomPage.Location = new System.Drawing.Point(266, 48);
             this.randomPage.Name = "randomPage";
             this.randomPage.Size = new System.Drawing.Size(113, 23);
             this.randomPage.TabIndex = 0;
@@ -54,7 +54,7 @@
             this.currentPageTitle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.currentPageTitle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.currentPageTitle.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentPageTitle.Location = new System.Drawing.Point(11, 95);
+            this.currentPageTitle.Location = new System.Drawing.Point(11, 72);
             this.currentPageTitle.Name = "currentPageTitle";
             this.currentPageTitle.ReadOnly = true;
             this.currentPageTitle.Size = new System.Drawing.Size(366, 20);
@@ -64,18 +64,21 @@
             // currentPageContent
             // 
             this.currentPageContent.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.currentPageContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.currentPageContent.Cursor = System.Windows.Forms.Cursors.Default;
-            this.currentPageContent.Location = new System.Drawing.Point(12, 121);
+            this.currentPageContent.Location = new System.Drawing.Point(12, 95);
             this.currentPageContent.Multiline = true;
             this.currentPageContent.Name = "currentPageContent";
             this.currentPageContent.ReadOnly = true;
             this.currentPageContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.currentPageContent.Size = new System.Drawing.Size(367, 317);
+            this.currentPageContent.Size = new System.Drawing.Size(367, 343);
             this.currentPageContent.TabIndex = 1;
+            this.currentPageContent.TextChanged += new System.EventHandler(this.currentPageContent_TextChanged);
             // 
             // gotoPage
             // 
-            this.gotoPage.Location = new System.Drawing.Point(266, 21);
+            this.gotoPage.Location = new System.Drawing.Point(266, 19);
             this.gotoPage.Name = "gotoPage";
             this.gotoPage.Size = new System.Drawing.Size(113, 23);
             this.gotoPage.TabIndex = 3;
@@ -104,7 +107,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Wikipedia Traductor";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,9 +116,9 @@
 
         private System.Windows.Forms.Button randomPage;
         private System.Windows.Forms.TextBox currentPageTitle;
-        private System.Windows.Forms.TextBox currentPageContent;
         private System.Windows.Forms.Button gotoPage;
         private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.TextBox currentPageContent;
     }
 }
 
