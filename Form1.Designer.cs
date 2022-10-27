@@ -34,6 +34,9 @@
             this.currentPageContent = new System.Windows.Forms.TextBox();
             this.gotoPage = new System.Windows.Forms.Button();
             this.searchBar = new System.Windows.Forms.TextBox();
+            this.translationLog = new System.Windows.Forms.TextBox();
+            this.translationInput = new System.Windows.Forms.TextBox();
+            this.submit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // randomPage
@@ -90,12 +93,44 @@
             this.searchBar.Size = new System.Drawing.Size(248, 20);
             this.searchBar.TabIndex = 4;
             // 
+            // translationLog
+            // 
+            this.translationLog.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.translationLog.Cursor = System.Windows.Forms.Cursors.Default;
+            this.translationLog.Location = new System.Drawing.Point(421, 23);
+            this.translationLog.Multiline = true;
+            this.translationLog.Name = "translationLog";
+            this.translationLog.ReadOnly = true;
+            this.translationLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.translationLog.Size = new System.Drawing.Size(367, 354);
+            this.translationLog.TabIndex = 5;
+            // 
+            // translationInput
+            // 
+            this.translationInput.Location = new System.Drawing.Point(421, 383);
+            this.translationInput.Multiline = true;
+            this.translationInput.Name = "translationInput";
+            this.translationInput.Size = new System.Drawing.Size(327, 55);
+            this.translationInput.TabIndex = 6;
+            // 
+            // submit
+            // 
+            this.submit.Location = new System.Drawing.Point(754, 383);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(34, 55);
+            this.submit.TabIndex = 7;
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.Submit);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.submit);
+            this.Controls.Add(this.translationInput);
+            this.Controls.Add(this.translationLog);
             this.Controls.Add(this.searchBar);
             this.Controls.Add(this.gotoPage);
             this.Controls.Add(this.currentPageTitle);
@@ -117,6 +152,9 @@
         private System.Windows.Forms.TextBox currentPageContent;
         private System.Windows.Forms.Button gotoPage;
         private System.Windows.Forms.TextBox searchBar;
+        private System.Windows.Forms.TextBox translationLog;
+        private System.Windows.Forms.TextBox translationInput;
+        private System.Windows.Forms.Button submit;
     }
 }
 

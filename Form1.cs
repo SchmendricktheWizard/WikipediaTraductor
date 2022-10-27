@@ -51,5 +51,11 @@ namespace WikipediaTraductor
 
         }
 
+        private void Submit(object sender, EventArgs e)
+        {
+            string translatedText = translationInput.Text;
+            translationInput.Text = "";
+            translationLog.Text += String.Format(translatedText);
+        }
     }
 }
