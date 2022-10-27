@@ -12,7 +12,7 @@ namespace WikipediaTraductor
     /// </summary>
     internal class WikiPage
     {
-        public string title;
+        public HtmlNode title;
         private HtmlNodeCollection topics;
         private HtmlNodeCollection paragraphs;
         public HtmlDocument htmlDocument;
@@ -20,43 +20,61 @@ namespace WikipediaTraductor
         {
             this.htmlDocument = htmlDocument;
 
-            this.title = htmlDocument.DocumentNode
-                .SelectSingleNode("//h1[@id=\"firstHeading\"]")
-                .InnerText;
+            this.title = htmlDocument.DocumentNode.SelectSingleNode("//h1[@id=\"firstHeading\"]");
             this.topics = htmlDocument.DocumentNode.SelectNodes("//*[@class=\"mw-headline\"]");
             this.paragraphs = htmlDocument.DocumentNode.SelectNodes("//p");
 
         }
-        /// <summary>
-        /// Returns a string array of subtopic headers on the page
-        /// </summary>
-        public string[] Topics()
+
+        public string Title
         {
-            string[] result = new string[topics.Count];
-            if (topics == null)
-                return new string[0];
-            int i = 0;
-            foreach (var topic in topics)
+            get
             {
-                if (topic.InnerText != "External Links" && topic.InnerText != "References")
+                if (title == null)
                 {
-                    result[i] = topic.InnerText;
-                    i++;
+                    return "404 Page not found";
                 }
+                else 
+                    return title.InnerText;
             }
-            return result;   
         }
 
-        public string[] Paragraphs()
+        /// <summary>
+        /// Method <c>Topics</c> Returns a string array of subtopic headers on the page
+        /// </summary>
+        public string[] Topics
         {
-            string[] result = new string[paragraphs.Count];
-            int i = 0;
-            foreach(var paragraph in paragraphs)
+            get
             {
-                result[i] = paragraph.InnerText;
-                i++;
+                string[] result = new string[topics.Count];
+                if (topics == null)
+                    return new string[0];
+                int i = 0;
+                foreach (var topic in topics)
+                {
+                    if (topic.InnerText != "External Links" && topic.InnerText != "References")
+                    {
+                        result[i] = topic.InnerText;
+                        i++;
+                    }
+                }
+                return result;
             }
-            return result;
+        }
+
+        public string[] Paragraphs
+        {
+            get
+            {
+                string[] result = new string[paragraphs.Count];
+                int i = 0;
+                foreach (var paragraph in paragraphs)
+                {
+                    result[i] = paragraph.InnerText;
+                    i++;
+                }
+                return result;
+            }
         }
 
     }

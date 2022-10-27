@@ -15,18 +15,11 @@ namespace WikipediaTraductor
         //[STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-
             PageGetter pageGetter = new PageGetter();
-            WikiPage newPage = new WikiPage(pageGetter.GetRandomPage());
-
-            Console.WriteLine("Page Title: {0}", newPage.title);
-            foreach (string paragraph in newPage.Paragraphs())
-            {
-                Console.WriteLine($"Paragraphs {paragraph}");
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainWindow());
         }
     }
 }
+ 
